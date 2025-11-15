@@ -1,0 +1,244 @@
+/* style.css - Blue-White Academic Style for Aoyan Wang Portfolio */
+:root {
+  --blue: #2b6cb0;
+  --light-blue: #63b3ed;
+  --muted: #718096;
+  --bg: #f8fafc;
+  --card: #ffffff;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  margin: 0;
+  background: var(--bg);
+  color: #1a202c;
+  line-height: 1.6;
+}
+
+/* ---------- Compact Header Three-Part Layout ---------- */
+.header {
+  background: linear-gradient(135deg, var(--blue), var(--light-blue));
+  color: white;
+  padding: 0 0;
+  border-bottom: 3px solid rgba(0, 0, 0, 0.05);
+}
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+  max-width: 980px;
+  margin: auto  ; gap: 20px;
+}
+.header-left img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid rgba(255, 255, 255, 0.6);
+}
+.header-center {
+  flex-grow: 1;
+  text-align: center;
+  padding: 0 0;
+}
+.header-center h1 {
+  margin: 0;
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+.header-center p {
+  margin: 0cm 0 0;
+  font-size: 0.95rem;
+  opacity: 0.95;
+}
+.header-right {
+  text-align: right;
+  font-size: 0.9rem;
+  line-height: 1.3;
+  color: #fefefe;
+}
+.header-right strong {
+  display: block;
+  font-weight: 600;
+}
+.header-right a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+}
+.header-right a:hover {
+  text-decoration: underline;
+}
+
+/* ---------- Main Container & Section Spacing ---------- */
+.container {
+  width: 90%;
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 0 0; /* 原2rem → 更紧凑 */
+}
+
+.section {
+  background: var(--card);
+  padding: 0 0; /* 原1.2rem → 紧凑 */
+  border-radius: 10px;
+  box-shadow: 0 4px 18px rgba(11, 23, 39, 0.04);
+  margin-bottom: 0cm; /* 原1.4rem → 紧凑 */
+}
+
+.section-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  border-left: 4px solid var(--blue);
+  padding-left: 0cm;
+  margin-bottom: 0cm;
+}
+
+.highlight {
+  font-weight: 700;
+  color: var(--blue);
+}
+
+.details-link summary {
+  cursor: pointer;
+  font-weight: 600;
+  color: var(--blue);
+  margin-top: 0cm;
+}
+.detail-content {
+  background: #f7fbff;
+  padding: 0m;
+  border-left: 4px solid var(--blue);
+  margin-top: 0cm;
+  border-radius: 8px;
+}
+
+.button-link {
+  display: inline-block;
+  background: #e6eef9;
+  padding: 0cm 0cm;
+  border-radius: 8px;
+  margin-top: 0cm;
+  font-weight: 600;
+  color: var(--blue);
+  text-decoration: none;
+}
+.primary-button { background: var(--blue); color: white; }
+
+.project-grid, .image-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.6rem;
+}
+.project-item, .img-item {
+  background: #f1f5f9;
+  padding: 0cm;
+  border-radius: 8px;
+  text-align: center;
+}
+.img-item img {
+  max-width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.contact-section { text-align: center; }
+
+.footer {
+  background: #2d3748;
+  color: white;
+  text-align: center;
+  padding: 0cm;
+  margin-top: ocm;
+}
+
+.page-header { margin-bottom: ocm; }
+.back-home {
+  background: #edf2f7;
+  padding: 0 0;
+  border-radius: 8px;
+  color: var(--blue);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+/* ---------- Responsive Tweaks ---------- */
+@media (max-width: 900px) {
+  .project-grid, .image-grid { grid-template-columns: repeat(2, 1fr); }
+  .img-item img { height: 120px; }
+  .header-left img { width: 60px; height: 60px; }
+  .header-center h1 { font-size: 1.2rem; }
+}
+@media (max-width: 480px) {
+  .project-grid, .image-grid { grid-template-columns: 1fr; }
+  .header-center p { font-size: 0.85rem; }
+  .header-right { font-size: 0.8rem; }
+}
+
+/* ---------- Lightbox ---------- */
+.lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: rgba(0, 0, 0, 0.8);
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+}
+.lightbox.active { display: flex; }
+.lightbox .lightbox-inner { max-width: 1100px; max-height: 90vh; }
+.lightbox-img {
+  max-width: 100%;
+  max-height: 85vh;
+  border-radius: 8px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+  background: #fff;
+}
+.lightbox-close {
+  position: fixed;
+  top: 18px;
+  right: 22px;
+  font-size: 28px;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.25);
+  border: none;
+  border-radius: 6px;
+  padding: 4px 10px;
+  cursor: pointer;
+  z-index: 10010;
+}
+.lightbox-close:hover { background: rgba(0, 0, 0, 0.45); }
+
+.lightbox-prev, .lightbox-next {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 5rem;
+  color: white;
+  background: rgba(0, 0, 0, 0.4);
+  border: none;
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  cursor: pointer;
+  z-index: 1001;
+  transition: background 0.3s, transform 0.2s;
+  display: none;
+}
+.lightbox.active .lightbox-prev,
+.lightbox.active .lightbox-next {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.lightbox-prev:hover, .lightbox-next:hover {
+  background: rgba(0, 0, 0, 0.7);
+  transform: translateY(-50%) scale(1.1);
+}
+.lightbox-prev { left: 20px; }
+.lightbox-next { right: 20px; }
